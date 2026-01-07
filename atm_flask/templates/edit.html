@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>✏️ แก้ไขบัญชี</h2>
+
+<p><strong>เลขบัญชี:</strong> {{ account.account_number }}</p>
+
+<form method="post">
+  <input type="text" name="username" placeholder="ชื่อผู้ใช้" value="{{ account.username }}" required>
+  <button type="submit">บันทึก</button>
+</form>
+
+<a href="{{ url_for('index') }}" class="btn gray" style="margin-top:12px;">⬅ กลับหน้าหลัก</a>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>บัญชี: {{ account.account_number }}</h3>
+<p>👤 ชื่อผู้ใช้: {{ account.username }}</p>
+<p>💰 ยอดเงิน: {{ account.balance }} บาท</p>
+
+<form method="post" class="row g-2">
+    <div class="col-md-4">
+        <input type="number" step="0.01" name="amount" class="form-control" placeholder="จำนวนเงิน" required>
+    </div>
+    <div class="col-md-8">
+        <button name="action" value="deposit" class="btn btn-success">ฝากเงิน</button>
+        <button name="action" value="withdraw" class="btn btn-warning">ถอนเงิน</button>
+    </div>
+</form>
+
+<a href="/" class="btn btn-secondary mt-3">⬅ กลับหน้าหลัก</a>
+{% endblock %}

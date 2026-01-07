@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>💸 ถอนเงิน</h2>
+<p><strong>บัญชี:</strong> {{ account.account_number }}</p>
+<p><strong>ชื่อผู้ใช้:</strong> {{ account.username }}</p>
+<p><strong>ยอดเงินปัจจุบัน:</strong> {{ '%.2f'|format(account.balance) }} บาท</p>
+
+<form method="post">
+  <input type="number" name="amount" step="0.01" min="0.01" placeholder="จำนวนเงินถอน" required>
+  <button type="submit" class="danger">ถอนเงิน</button>
+</form>
+
+<a href="{{ url_for('index') }}" class="btn gray" style="margin-top:12px;">⬅ กลับหน้าหลัก</a>
+
+{% endblock %}

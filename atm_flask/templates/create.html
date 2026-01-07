@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>➕ สร้างบัญชี</h2>
+
+<form method="post">
+  <input type="text" name="account_number" placeholder="เลขบัญชี" required>
+  <input type="text" name="username" placeholder="ชื่อผู้ใช้" required>
+  <input type="number" step="0.01" min="0" name="balance" placeholder="ยอดเงินเริ่มต้น (ถ้าไม่ใส่ = 0)">
+  <button type="submit">สร้างบัญชี</button>
+</form>
+
+<a href="{{ url_for('index') }}" class="btn gray" style="margin-top:12px;">⬅ กลับหน้าหลัก</a>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<a href="{{ url_for('create') }}" class="btn">➕ สร้างบัญชี</a>
+
+<table>
+  <tr>
+    <th>เลขบัญชี</th>
+    <th>ชื่อ</th>
+    <th>ยอดเงิน</th>
+    <th>จัดการ</th>
+  </tr>
+
+  {% for a in accounts %}
+  <tr>
+    <td>{{ a.account_number }}</td>
+    <td>{{ a.username }}</td>
+    <td>{{ '%.2f'|format(a.balance) }}</td>
+    <td>
+      <a href="{{ url_for('deposit', acc=a.account_number) }}">ฝาก</a> |
+      <a href="{{ url_for('withdraw', acc=a.account_number) }}">ถอน</a> |
+      <a href="{{ url_for('edit', acc=a.account_number) }}">แก้ไข</a> |
+      <a href="{{ url_for('delete', acc=a.account_number) }}" onclick="return confirm('ลบบัญชี?')">ลบ</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+<h3>💰 ยอดเงินรวมทั้งหมดในระบบ: {{ '%.2f'|format(total_balance or 0) }} บาท</h3>
+
+{% endblock %}
